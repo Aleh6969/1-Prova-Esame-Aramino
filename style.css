@@ -1,3 +1,36 @@
 ul li{
     display: inline;
-  }
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+}
+nav {
+  background-color: #f8f9fa;
+  padding: 10px 20px;
+  text-align: center;
+  border-bottom: 2px solid #007bff;
+}
+nav a {
+  color: #007bff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+nav a:hover {
+  background-color: #007bff;
+  color: white;
+}
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
