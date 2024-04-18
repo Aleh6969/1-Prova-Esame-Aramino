@@ -19,14 +19,14 @@ function emailValidation(input){
         }
     }
 }
-function CambiaTrasparenza(){
-    let a = document.getElementById("divForm");
-    if(a.style.visibility != "visible"){
-        a.style.visibility = "visible";
-    }else{
-        a.style.visibility = "hidden";
+function CambiaTrasparenza() {
+    if (window.location == "./index.php") {//TODO 
+        window.location.href = "blank.php";
+    } else {
+        window.location.href = "index.php";
     }
 }
+
 /*function CCValidate(CCNum, ExpDate, CVC, HolderName){
     isValid('4916108926268679'); // returns true
     isExpirationDateValid('02', '2027'); // returns true

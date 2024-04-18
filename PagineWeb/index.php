@@ -26,25 +26,5 @@
         <p>Qui potrete trovare tutte le informazioni riguardanti i nostri stabilimenti balneari, i servizi offerti, le tariffe e come contattarci.</p>
         <p>Esplora le varie sezioni attraverso la barra di navigazione sopra.</p>
     </div>
-    <div class="container2" id="divForm">
-        <h2>Login</h2>
-        <form action="login.php" method="POST">
-            <label for="username">Username:</label><br>
-            <input type="text" id="username" name="username"><br>
-            <label for="password">Password:</label><br>
-            <input type="password" id="password" name="password"><br><br>
-            <input type="submit" value="Login">
-        </form>
-        <h2>Registrazione</h2>
-        <form name="form1" action="registrazione.php" method="POST">
-            <label for="new_username">Username:</label><br>
-            <input type="text" id="new_username" name="new_username" required><br>
-            <label for="new_email">E-mail</label><br>
-            <input type="email" id="new_email" name="new_email" onchange="emailValidation(this)"required></input><br>
-            <label for="new_password">Password:</label><br>
-            <input type="password" id="new_password" name="new_password"required><br><br>
-            <input type="submit" value="Registrati">
-        </form>
-    </div>
 </body>
 </html>

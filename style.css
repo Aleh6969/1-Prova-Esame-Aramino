@@ -43,11 +43,10 @@ nav a:hover {
   right: 20px;
 }
 .container2 {
-  visibility: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.register{
+.Register{
   
 }
