@@ -20,8 +20,8 @@ function emailValidation(input){
     }
 }
 function CambiaTrasparenza() {
-    if (window.location == "./index.php") {//TODO 
-        window.location.href = "blank.php";
+    if (window.location == "./index.php") {//TODO cambiare con 
+        window.location.href = "blank.php";//     trasparenza
     } else {
         window.location.href = "index.php";
     }
