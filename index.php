@@ -7,6 +7,13 @@
     <script src="script.js"></script>
 </head>
 <body>
-    
+    <nav>
+        <ul>
+            <li><a href="/index.php">Home</a></li>
+            <li><a href="">Chi Siamo</a></li>
+            <li><a href="">Stabilimenti</a></li>
+            <li><a href="/attivita.php">Attività</a></li>
+        </ul>
+    </nav>
 </body>
 </html>
