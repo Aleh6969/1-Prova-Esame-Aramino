@@ -14,17 +14,19 @@
         <div>
             <a href="index.php">Home</a>
             <a href="servizi.php">Servizi</a>
-            <a href="tariffe.php">Tariffe</a>
+            <a href="truffe.php">Tariffe</a>
             <a href="contatti.php">Contatti</a>
         </div>
         <div>
-            <a class="Register" onclick="CambiaTrasparenza()">Login/Registrati</a>
+            <a class="Register" onclick="toggleRegLog()">Login/Registrati</a>
         </div>
     </nav>
-    <div class="container">
+    <div class="container" id="divBase">
         <h2>Benvenuti nel Consorzio Stabilimenti Balneari!</h2>
         <p>Qui potrete trovare tutte le informazioni riguardanti i nostri stabilimenti balneari, i servizi offerti, le tariffe e come contattarci.</p>
         <p>Esplora le varie sezioni attraverso la barra di navigazione sopra.</p>
+        <p>ADD SHIT HERE<br>/*****<br>*<br>*<br>*<br>*<br>*<br>*<br>*<br>*<br>*<br>*<br>*<br>*<br>*<br>*<br>*<br>*<br>*<br>*<br>*****/</p>
     </div>
+    
 </body>
 </html>
