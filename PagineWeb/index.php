@@ -25,7 +25,49 @@
         <h2>Benvenuti nel Consorzio Stabilimenti Balneari!</h2>
         <p>Qui potrete trovare tutte le informazioni riguardanti i nostri stabilimenti balneari, i servizi offerti, le tariffe e come contattarci.</p>
         <p>Esplora le varie sezioni attraverso la barra di navigazione sopra.</p>
-        <p>ADD SHIT HERE<br>/*****<br>*<br>*<br>*<br>*<br>*<br>*<br>*<br>*<br>*<br>*<br>*<br>*<br>*<br>*<br>*<br>*<br>*<br>*<br>*****/</p>
+        <p>ADD SHIT HERE/*
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*
+
+*/      
+        </p>
     </div>
     
 </body>
