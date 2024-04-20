@@ -23,7 +23,7 @@
     </nav>
     <div class="container2" id="divForm">
         <h2>Login</h2>
-        <form action="login.php" method="POST">
+        <form action="Login.php" method="POST">
             <label for="username">Username:</label><br>
             <input type="text" id="username" name="username"><br>
             <label for="password">Password:</label><br>
@@ -31,7 +31,7 @@
             <input type="submit" value="Login">
         </form>
         <h2>Registrazione</h2>
-        <form name="form1" action="registrazione.php" method="POST">
+        <form name="form1" action="Registration.php" method="POST">
             <label for="new_username">Username:</label><br>
             <input type="text" id="new_username" name="new_username" required><br>
             <label for="new_email">E-mail</label><br>

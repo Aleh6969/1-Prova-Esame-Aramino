@@ -1,10 +1,10 @@
 specialChars =/[`!@#$%^&*()_\-+=\[\]{};':"\\|,.<>\/?~ ]/;
-/*import { 
+import { 
     isValid, 
     isExpirationDateValid, 
     isSecurityCodeValid, 
     getCreditCardNameByNumber 
-} from 'creditcard.js';*/
+} from 'creditcard.js';
 function emailValidation(input){
     console.log("EmailValidation")
     var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -26,8 +26,7 @@ function CambiaTrasparenza() {
         window.location.href = "index.php";
     }
 }
-
-/*function CCValidate(CCNum, ExpDate, CVC, HolderName){
+function CCValidate(CCNum, ExpDate, CVC, HolderName){
     isValid('4916108926268679'); // returns true
     isExpirationDateValid('02', '2027'); // returns true
     isSecurityCodeValid('4556603578296676', '250'); // returns true
@@ -36,4 +35,3 @@ function CambiaTrasparenza() {
         alert("inserire un nome valido");
     }
 }
-*/
