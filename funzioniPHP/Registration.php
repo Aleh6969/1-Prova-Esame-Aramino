@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Connessione al database
         $conn = connetti();
         // Preparazione e esecuzione della query per l'inserimento dei dati nel database
-        $queryRegistrazione = $conn->prepare("INSERT INTO utenti (username, email, password) VALUES (:username, :email, :password)");
+        $queryRegistrazione = $conn->prepare("INSERT INTO utenti (CODCLN,username, email, password) VALUES (0,:username, :email, :password)");
         $queryRegistrazione->bindValue(':username', $new_username);
         $queryRegistrazione->bindValue(':email', $new_email);
         $queryRegistrazione->bindValue(':password', $new_password);
