@@ -6,15 +6,15 @@ specialChars =/[`!@#$%^&*()_\-+=\[\]{};':"\\|,.<>\/?~ ]/;
     getCreditCardNameByNumber 
 } from 'creditcard.js';*/
 function emailValidation(input){ //sembra funzionare
-    console.log("EmailValidation")
+    console.log("EmailValidation");
     let validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     if(input.value!=""){
         if (input.value.match(validRegex)) {
-            console.log("Email valida")
+            console.log("Email valida");
             return true;
         } else {
-            console.log("Email non valida")
-            alert("Inserire una mail valida")
+            console.log("Email non valida");
+            alert("Inserire una mail valida");
             return false;
         }
     }
@@ -80,7 +80,7 @@ loginTitle.textContent = "Login";
 containerDiv.appendChild(loginTitle);
 
 let loginForm = document.createElement("form");
-loginForm.action = "Login.php";
+loginForm.action = "../funzioniPHP/Login.php";
 loginForm.method = "POST";
 
 let loginUsernameLabel = document.createElement("label");
@@ -122,7 +122,7 @@ containerDiv.appendChild(registrationTitle);
 
 let registrationForm = document.createElement("form");
 registrationForm.name = "form1";
-registrationForm.action = "Registration.php";
+registrationForm.action = "../FunzioniPHP/Registration.php";
 registrationForm.method = "POST";
 
 let newUsernameLabel = document.createElement("label");
@@ -176,6 +176,9 @@ containerDiv.appendChild(registrationForm);
 // Aggiunta del div container alla pagina HTML
 document.body.appendChild(containerDiv);
 return "fatto";
+}
+function logout(){
+   
 }
 /*function CCValidate(CCNum, ExpDate, CVC, HolderName){
     isValid('4916108926268679'); // returns true
