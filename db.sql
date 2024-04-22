@@ -21,8 +21,8 @@ CREATE TABLE IF NOT EXISTS SERVIZIO (
 CREATE TABLE IF NOT EXISTS Cliente(
     CODCLN int auto_increment,
     UserName Varchar(30) UNIQUE,
-    UserPassword varchar(99),
-    UserEmail varchar(255),
+    UserPassword varchar(99) ,
+    UserEmail varchar(255)UNIQUE,
     PRIMARY KEY (CODCLN)
 )ENGINE = INNODB;
 CREATE TABLE IF NOT EXISTS SPONSOR(
