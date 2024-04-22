@@ -1,10 +1,10 @@
-specialChars =/[`!@#$%^&*()_\-+=\[\]{};':"\\|,.<>\/?~ ]/;
 import { 
     isValid, 
     isExpirationDateValid, 
     isSecurityCodeValid, 
     getCreditCardNameByNumber 
 } from 'creditcard.js';
+specialChars =/[`!@#$%^&*()_\-+=\[\]{};':"\\|,.<>\/?~ ]/;
 function emailValidation(input){ //sembra funzionare
     console.log("EmailValidation");
     let validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
