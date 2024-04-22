@@ -1,10 +1,5 @@
-import { 
-    isValid, 
-    isExpirationDateValid, 
-    isSecurityCodeValid, 
-    getCreditCardNameByNumber 
-} from 'creditcard.js';
 specialChars =/[`!@#$%^&*()_\-+=\[\]{};':"\\|,.<>\/?~ ]/;
+var sessionData;
 function emailValidation(input){ //sembra funzionare
     console.log("EmailValidation");
     let validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -20,17 +15,18 @@ function emailValidation(input){ //sembra funzionare
     }
 }
 function toggleRegLog(){//sembra funzionare
-    console.log("toggleRegLog function called");
+    //console.log("toggleRegLog function called");
     let divBase = document.getElementById("divBase");
     let divRegLog = document.getElementById("divRegLog");
-    console.log("divBase:", divBase);
-    console.log("divRegLog:", divRegLog);
+    //console.log("divBase:", divBase);
+    //console.log("divRegLog:", divRegLog);
     if(divBase){
-        console.log("Removing divBase");
+        //console.log("Removing divBase");
         divBase.remove();
-        console.log(showRegLog());
+        showRegLog();
+        //console.log(showRegLog());
     } else {
-        console.log("Removing divRegLog");
+        //console.log("Removing divRegLog");
         divRegLog.remove();
         showBase();
     }
@@ -176,7 +172,7 @@ containerDiv.appendChild(registrationForm);
 document.body.appendChild(containerDiv);
 return "fatto";
 }
-function updateProfile() {
+function updateProfile() {//WIP
     // Ottenere i valori dei campi di input
     var username = document.getElementById("username").value;
     var email = document.getElementById("email").value;
@@ -196,13 +192,24 @@ function updateProfile() {
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.send("username=" + username + "&email=" + email + "&password=" + password);
 }
+function getSessionData() {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            sessionData = JSON.parse(xhr.responseText);
+        }
+    };
+    xhr.open("GET", "get_session_data.php", true);
+    xhr.send();
+}
 function checkLoginStatus() {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && xhr.status == 200) {
             var response = xhr.responseText;
             if (response === "ok") {
-                console.log("L'utente è loggato!");
+                document.getElementById("UserProfile").innerHTML = sessionData["username"];
+                document.getElementById("UserProfile").style.visibility = 'visible';
             } else {
                 console.log("L'utente non è loggato.");
             }
