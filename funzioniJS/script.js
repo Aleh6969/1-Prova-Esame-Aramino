@@ -1,10 +1,10 @@
 specialChars =/[`!@#$%^&*()_\-+=\[\]{};':"\\|,.<>\/?~ ]/;
-/*import { 
+import { 
     isValid, 
     isExpirationDateValid, 
     isSecurityCodeValid, 
     getCreditCardNameByNumber 
-} from 'creditcard.js';*/
+} from 'creditcard.js';
 function emailValidation(input){ //sembra funzionare
     console.log("EmailValidation");
     let validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -35,7 +35,6 @@ function toggleRegLog(){//sembra funzionare
         showBase();
     }
 }
-
 function showBase(){//sembra funzionare
     // Crea un nuovo elemento div
 let newDiv = document.createElement("div");
@@ -177,10 +176,58 @@ containerDiv.appendChild(registrationForm);
 document.body.appendChild(containerDiv);
 return "fatto";
 }
-function logout(){
-   
+function updateProfile() {
+    // Ottenere i valori dei campi di input
+    var username = document.getElementById("username").value;
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var response = xhr.responseText;
+            if (response === "success") {
+                alert("Profilo utente aggiornato con successo!");
+            } else {
+                alert("Si è verificato un errore durante l'aggiornamento del profilo utente.");
+            }
+        }
+    };
+    xhr.open("POST", "aggiorna_profilo.php", true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.send("username=" + username + "&email=" + email + "&password=" + password);
 }
-/*function CCValidate(CCNum, ExpDate, CVC, HolderName){
+function checkLoginStatus() {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var response = xhr.responseText;
+            if (response === "ok") {
+                console.log("L'utente è loggato!");
+            } else {
+                console.log("L'utente non è loggato.");
+            }
+            logoutButton();
+        }
+    };
+    xhr.open("GET", "../funzioniPHP/check_login.php", true);
+    xhr.send();
+}
+function logoutButton(){ //da finire
+    let button = document.getElementById("LogRegOut");
+    button.innerHTML = "Logout";
+    button.onclick = Logout;
+}
+function Logout(){
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            window.location.href = "../PagineWeb/index.php";
+        }
+    };
+    xhr.open("GET", "logout.php", true);
+    xhr.send();
+}
+function CCValidate(CCNum, ExpDate, CVC, HolderName){
     isValid('4916108926268679'); // returns true
     isExpirationDateValid('02', '2027'); // returns true
     isSecurityCodeValid('4556603578296676', '250'); // returns true
@@ -188,4 +235,4 @@ function logout(){
     if(specialChars.test(HolderName)){
         alert("inserire un nome valido");
     }
-}*/
+}

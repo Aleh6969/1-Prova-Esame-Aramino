@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "creditcard.js": "^3.0.33",
     "pkg.json": "^2.0.8",
     "yarn": "^1.22.22"
   }

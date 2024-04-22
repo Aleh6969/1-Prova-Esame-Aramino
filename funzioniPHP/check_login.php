@@ -3,8 +3,12 @@ session_start();
 
 if (isset($_SESSION['username'])) {
     $username = $_SESSION['username'];
-    echo 'ok';
-    //echo "Benvenuto, $username!";//da modificare
+    logout();
 } else {
-    //echo "Devi effettuare il login per accedere a questa pagina.";
+    return false;
+}
+function logout() {
+    $_SESSION = array();
+    session_destroy();
+    header('Location: '.'../PagineWeb/index.php');
 }
