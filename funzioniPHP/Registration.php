@@ -1,5 +1,4 @@
 <?php
-// Includi il file di connessione al database
 require_once('connetti.php');
 // Verifica se sono stati inviati dati dal form
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -23,14 +22,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $queryRegistrazione->bindValue(":username", $new_username);
                 $queryRegistrazione->execute();
                 $codcln = $queryRegistrazione ->fetch(PDO::FETCH_ASSOC);
+                $_SESSION['username'] = $new_username;
+                $_SESSION['email'] = $new_email;
+                $_SESSION['password'] = $new_password;
+                $_SESSION['codcln'] = $codcln;
+                //echo "ok";
             }catch(PDOException $e) {
-                die;
+                echo $e->getMessage();
             }
-            $_SESSION['username'] = $new_username;
-            $_SESSION['email'] = $new_email;
-            $_SESSION['password'] = $new_password;
-            $_SESSION['codcln'] = $codcln;
-            var_dump($_SESSION['codcln']);
+            //var_dump($_SESSION['codcln']);
             header("Location: " . "../PagineWeb/index.php");
         } else {
             echo "Errore durante la registrazione.";
