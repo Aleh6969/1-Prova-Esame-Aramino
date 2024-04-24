@@ -243,3 +243,6 @@ function CCValidate(CCNum, ExpDate, CVC, HolderName){
         alert("inserire un nome valido");
     }
 }
+function loadProfile(){
+    
+}

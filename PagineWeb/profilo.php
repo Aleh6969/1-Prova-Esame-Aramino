@@ -8,6 +8,7 @@
     <script src="../funzioniJS/script.js">
         window.onload = function() {
             checkLoginStatus();
+            loadProfile();
         };
     </script>
 </head>
