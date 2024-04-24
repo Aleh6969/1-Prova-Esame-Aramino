@@ -1,5 +1,4 @@
 specialChars =/[`!@#$%^&*()_\-+=\[\]{};':"\\|,.<>\/?~ ]/;
-var sessionData;
 function emailValidation(input){ //sembra funzionare
     console.log("EmailValidation");
     let validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -192,25 +191,32 @@ function updateProfile() {//WIP
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.send("username=" + username + "&email=" + email + "&password=" + password);
 }
-function getSessionData() {
+function getSessionData(callback) {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && xhr.status == 200) {
             sessionData = JSON.parse(xhr.responseText);
+            callback(sessionData); // Chiamata al callback con i dati della sessione
         }
     };
-    xhr.open("GET", "get_session_data.php", true);
+    xhr.open("GET", "../funzioniPHP/getSessionData.php", true);
     xhr.send();
 }
+
 function checkLoginStatus() {
+    console.log("check login")
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && xhr.status == 200) {
             var response = xhr.responseText;
+            //console.log(response);
             if (response === "ok") {
-                document.getElementById("UserProfile").innerHTML = sessionData["username"];
-                document.getElementById("UserProfile").style.visibility = 'visible';
-            } else {
+                getSessionData(function(sessionData) {
+                    document.getElementById("UserProfile").innerHTML = sessionData.username;
+                    document.getElementById("UserProfile").style.visibility = 'visible';
+                });
+            }
+            else{
                 console.log("L'utente non è loggato.");
             }
             logoutButton();
@@ -219,6 +225,7 @@ function checkLoginStatus() {
     xhr.open("GET", "../funzioniPHP/check_login.php", true);
     xhr.send();
 }
+
 function logoutButton(){ //da finire
     let button = document.getElementById("LogRegOut");
     button.innerHTML = "Logout";
@@ -231,7 +238,7 @@ function Logout(){
             window.location.href = "../PagineWeb/index.php";
         }
     };
-    xhr.open("GET", "logout.php", true);
+    xhr.open("GET", "../funzioni/logout.php", true);
     xhr.send();
 }
 function CCValidate(CCNum, ExpDate, CVC, HolderName){

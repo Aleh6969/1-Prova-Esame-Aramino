@@ -5,8 +5,10 @@
     <title>Consorzio Stabilimenti Balneari</title>
     <link rel="stylesheet" href="../style.css">
     <script src="../node_modules/creditcard.js/dist/creditcard.js"></script>
-    <script src="../funzioniJS/script.js">
+    <script src="../funzioniJS/script.js"></script>
+    <script>
         window.onload = function() {
+            //window.location.reload();
             checkLoginStatus();
         };
     </script>

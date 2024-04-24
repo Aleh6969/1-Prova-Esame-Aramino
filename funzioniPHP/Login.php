@@ -6,7 +6,7 @@ function check_user($username, $password, $puntaPDO){
     $result->bindValue(':username', $username); 
     $result->bindValue(':password', $password);
     $result->execute();
-    $risultato = $result->fetch(); 
+    $risultato = $result->fetch();
     if ($risultato){return $risultato['CODCLN'];}
     else { return -1; }
 }
@@ -19,4 +19,4 @@ if ($loggato >= 1) {
 } else {
     $_SESSION['erroreLogin'] = true;
 }
-?>
+
