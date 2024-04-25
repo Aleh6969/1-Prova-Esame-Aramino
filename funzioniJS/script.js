@@ -214,13 +214,13 @@ function checkLoginStatus(callback) {
                     document.getElementById("UserProfile").innerHTML = sessionData.username;
                     document.getElementById("UserProfile").style.visibility = 'visible';
                 });
+                logoutButton();
                 callback(true);
             }
             else{
                 console.log("L'utente non è loggato.");
                 callback(false);
             }
-            logoutButton();
         }
     };
     xhr.open("GET", "../funzioniPHP/check_login.php", true);
