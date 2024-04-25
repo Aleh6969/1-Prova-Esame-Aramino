@@ -7,12 +7,15 @@
     <script src="../node_modules/creditcard.js/dist/creditcard.js"></script>
     <script src="../funzioniJS/script.js">
         window.onload = function() {
-            checkLoginStatus();
+            a = checkLoginStatus();
         };
     </script>
 </head>
 <body>
-<nav>
+    <header>
+        <h1>Stabilimenti</h1>
+    </header>
+    <nav>
         <div>
             <a href="index.php">Home</a>
             <a href="attivita.php">Attività</a>

@@ -12,14 +12,17 @@
     </script>
 </head>
 <body>
-<nav>
+    <header>
+        <h1>Attività</h1>
+    </header>
+    <nav>
         <div>
             <a href="index.php">Home</a>
             <a href="attivita.php">Attività</a>
             <a href="Stabilimenti.php">Stabilimenti</a>
         </div>
         <div>
-            <a class="UserProfile" id="UserProfile" href="profilo.php" style="visibility: hidden;"></a>
+            <a class="UserProfile" id="UserProfile" href="profilo.php" onclick="" style="visibility: hidden;"></a>
             <a class="Register" id="LogRegOut" onclick="toggleRegLog()">Login/Registrati</a>
         </div>
     </nav>

@@ -14,7 +14,9 @@
     </script>
 </head>
 <body>
-    <h1>Profilo Utente</h1>
+    <header>
+        <h1>Profilo Utente</h1>
+    </header>
     <nav>
         <div>
             <a href="index.php">Home</a>
