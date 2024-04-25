@@ -202,8 +202,7 @@ function getSessionData(callback) {
     xhr.open("GET", "../funzioniPHP/getSessionData.php", true);
     xhr.send();
 }
-
-function checkLoginStatus() {
+function checkLoginStatus(callback) {
     console.log("check login")
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
@@ -215,9 +214,11 @@ function checkLoginStatus() {
                     document.getElementById("UserProfile").innerHTML = sessionData.username;
                     document.getElementById("UserProfile").style.visibility = 'visible';
                 });
+                callback(true);
             }
             else{
                 console.log("L'utente non è loggato.");
+                callback(false);
             }
             logoutButton();
         }
@@ -225,7 +226,6 @@ function checkLoginStatus() {
     xhr.open("GET", "../funzioniPHP/check_login.php", true);
     xhr.send();
 }
-
 function logoutButton(){ //da finire
     let button = document.getElementById("LogRegOut");
     button.innerHTML = "Logout";
@@ -238,7 +238,7 @@ function Logout(){
             window.location.href = "../PagineWeb/index.php";
         }
     };
-    xhr.open("GET", "../funzioni/logout.php", true);
+    xhr.open("POST", "../funzioniPHP/logout.php", true);
     xhr.send();
 }
 function CCValidate(CCNum, ExpDate, CVC, HolderName){
@@ -251,5 +251,15 @@ function CCValidate(CCNum, ExpDate, CVC, HolderName){
     }
 }
 function loadProfile(){
-    
+    let xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function(){
+        if (xhr.readyState == 4 && xhr.status == 200){
+            //DO Something
+            profileData = JSON.parse(xhr.responseText);
+            document.getElementById("PFP.username").value = profileData.username;
+            document.getElementById("PFP.email").value = profileData.email;
+        }
+    };
+    xhr.open("POST", "../funzioniPHP/loadProfile.php", true);
+    xhr.send();
 }

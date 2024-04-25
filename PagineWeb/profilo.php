@@ -7,8 +7,9 @@
     <script src="../node_modules/creditcard.js/dist/creditcard.js"></script>
     <script src="../funzioniJS/script.js">
         window.onload = function() {
-            checkLoginStatus();
-            loadProfile();
+            if(checkLoginStatus() == true){
+                loadProfile();
+            }
         };
     </script>
 </head>
@@ -26,12 +27,12 @@
         </div>
     </nav>
     <form>
-        <label for="username">Username:</label><br>
-        <input type="text" id="username" name="username" required><br><br>
+        <label for="PFP.username">Username:</label><br>
+        <input type="text" id="username" name="username"><br><br>
         <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required><br><br>
+        <input type="email" id="email" name="email"><br><br>
         <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password" required><br><br>
+        <input type="PFP.password" id="password" name="password"><br><br>
         <button type="button" onclick="updateProfile()">Aggiorna Profilo</button>
     </form>
 </body>
