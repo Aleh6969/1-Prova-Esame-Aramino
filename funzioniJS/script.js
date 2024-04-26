@@ -236,6 +236,8 @@ function Logout(){
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && xhr.status == 200) {
             window.location.href = "../PagineWeb/index.php";
+            localStorage.clear();
+            
         }
     };
     xhr.open("POST", "../funzioniPHP/logout.php", true);
