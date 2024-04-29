@@ -1,13 +1,17 @@
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Attività</title>
     <link rel="stylesheet" href="../style.css">
     <script src="../node_modules/creditcard.js/dist/creditcard.js"></script>
-    <script src="../funzioniJS/script.js">
+    <script src="../funzioniJS/script.js"></script>
+    <script>
         window.onload = function() {
-            checkLoginStatus();
+            //window.location.reload();
+            a;
+            if(checkLoginStatus(a) == true){}
+            
         };
     </script>
 </head>

@@ -202,7 +202,7 @@ function getSessionData(callback) {
     xhr.open("GET", "../funzioniPHP/getSessionData.php", true);
     xhr.send();
 }
-function checkLoginStatus(callback) {
+function checkLoginStatus() {
     console.log("check login")
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
@@ -215,11 +215,9 @@ function checkLoginStatus(callback) {
                     document.getElementById("UserProfile").style.visibility = 'visible';
                 });
                 logoutButton();
-                callback(true);
             }
             else{
                 console.log("L'utente non è loggato.");
-                callback(false);
             }
         }
     };
@@ -237,7 +235,8 @@ function Logout(){
         if (xhr.readyState == 4 && xhr.status == 200) {
             window.location.href = "../PagineWeb/index.php";
             localStorage.clear();
-            
+            document.getElementById("LogRegOut").innerHTML="Login/Registrati";
+            document.getElementById("UserProfile").style.visibility="hidden";
         }
     };
     xhr.open("POST", "../funzioniPHP/logout.php", true);
