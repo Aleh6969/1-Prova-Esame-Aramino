@@ -1,6 +1,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<?php session_start() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profilo</title>
     <link rel="stylesheet" href="../style.css">
@@ -10,7 +11,7 @@
         window.onload = function() {
             //window.location.reload();
             checkLoginStatus();
-            loadProfile();
+            //loadProfile();
         };
     </script>
 </head>
@@ -30,12 +31,12 @@
         </div>
     </nav>
     <form>
-        <label for="PFP.username">Username:</label><br>
-        <input type="text" id="username" name="username"><br><br>
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username" placeholder="<?php echo $_SESSION["username"]?>"><br><br>
         <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email"><br><br>
+        <input type="email" id="email" name="email" placeholder="<?php echo $_SESSION["email"]?>"><br><br>
         <label for="password">Password:</label><br>
-        <input type="PFP.password" id="password" name="password"><br><br>
+        <input type="password" id="password" name="password"><br><br>
         <button type="button" onclick="updateProfile()">Aggiorna Profilo</button>
     </form>
 </body>

@@ -173,9 +173,6 @@ return "fatto";
 }
 function updateProfile() {//WIP
     // Ottenere i valori dei campi di input
-    var username = document.getElementById("username").value;
-    var email = document.getElementById("email").value;
-    var password = document.getElementById("password").value;
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && xhr.status == 200) {
@@ -187,9 +184,12 @@ function updateProfile() {//WIP
             }
         }
     };
-    xhr.open("POST", "aggiorna_profilo.php", true);
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.send("username=" + username + "&email=" + email + "&password=" + password);
+    xhr.open("POST", "../funzioniPHP/updateProfile.php", true);
+    var username = encodeURIComponent(document.getElementById("username").value);
+    var email = encodeURIComponent(document.getElementById("email").value);
+    var password = encodeURIComponent(document.getElementById("password").value);
+    var data = "username=" + username + "&email=" + email + "&password=" + password;
+    xhr.send(data);
 }
 function getSessionData(callback) {
     var xhr = new XMLHttpRequest();
@@ -251,6 +251,7 @@ function CCValidate(CCNum, ExpDate, CVC, HolderName){
         alert("inserire un nome valido");
     }
 }
+/*Useless shit
 function loadProfile(){
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function(){
@@ -263,4 +264,4 @@ function loadProfile(){
     };
     xhr.open("POST", "../funzioniPHP/loadProfile.php", true);
     xhr.send();
-}
+}*/
