@@ -176,8 +176,9 @@ function updateProfile() {//WIP
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && xhr.status == 200) {
+            console.log(xhr.responseText)
             var response = xhr.responseText;
-            if (response === "success") {
+            if (response == "ok") {
                 alert("Profilo utente aggiornato con successo!");
             } else {
                 alert("Si è verificato un errore durante l'aggiornamento del profilo utente.");
@@ -191,7 +192,7 @@ function updateProfile() {//WIP
     var data = "username=" + username + "&email=" + email + "&password=" + password;
     xhr.send(data);
 }
-function getSessionData(callback) {
+function getSessionData(callback) {//idk
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && xhr.status == 200) {
@@ -202,7 +203,7 @@ function getSessionData(callback) {
     xhr.open("GET", "../funzioniPHP/getSessionData.php", true);
     xhr.send();
 }
-function checkLoginStatus() {
+function checkLoginStatus() {//when this shitty game get good
     console.log("check login")
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
@@ -213,6 +214,7 @@ function checkLoginStatus() {
                 getSessionData(function(sessionData) {
                     document.getElementById("UserProfile").innerHTML = sessionData.username;
                     document.getElementById("UserProfile").style.visibility = 'visible';
+                    document.getElementById("prenota").style.visibility = "visible";
                 });
                 logoutButton();
             }
@@ -224,12 +226,12 @@ function checkLoginStatus() {
     xhr.open("GET", "../funzioniPHP/check_login.php", true);
     xhr.send();
 }
-function logoutButton(){ //da finire
+function logoutButton(){ //seems ok
     let button = document.getElementById("LogRegOut");
     button.innerHTML = "Logout";
     button.onclick = Logout;
 }
-function Logout(){
+function Logout(){//i mean its all right
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && xhr.status == 200) {
@@ -250,6 +252,34 @@ function CCValidate(CCNum, ExpDate, CVC, HolderName){
     if(specialChars.test(HolderName)){
         alert("inserire un nome valido");
     }
+}
+function caricaServizi(){
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var response = xhr.responseText;
+            //console.log(response);
+                array = xhr.responseText();
+                console.log(array)
+                addOptionsToSelect(array, "select-attivita");
+        };
+    }
+    xhr.open("GET", "../funzioniPHP/caricaServizi.php", true);
+    xhr.send();
+}
+function addOptionsToSelect(optionsArray, selectId) {
+    var select = document.getElementById(selectId);
+    if (!select) {
+        console.error("L'elemento select con ID " + selectId + " non esiste.");
+        return;
+    }
+    select.innerHTML = '';
+    optionsArray.forEach(function(optionText) {
+        var option = document.createElement("option");
+        option.text = optionText;
+        option.value = optionText;
+        select.appendChild(option);
+    });
 }
 /*Useless shit
 function loadProfile(){

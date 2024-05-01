@@ -24,6 +24,7 @@
             <a href="index.php">Home</a>
             <a href="attivita.php">Attività</a>
             <a href="Stabilimenti.php">Stabilimenti</a>
+            <a href="prenotaServizi.php" id="prenota" style="visibility: hidden;">Prenota Attività</a>
         </div>
         <div>
             <a class="UserProfile" id="UserProfile" href="profilo.php" onclick="" style="visibility: hidden;"></a>
@@ -36,7 +37,7 @@
         <label for="email">Email:</label><br>
         <input type="email" id="email" name="email" placeholder="<?php echo $_SESSION["email"]?>"><br><br>
         <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password"><br><br>
+        <input type="password" id="password" name="password" placeholder=""><br><br>
         <button type="button" onclick="updateProfile()">Aggiorna Profilo</button>
     </form>
 </body>

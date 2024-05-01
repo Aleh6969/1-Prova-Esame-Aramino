@@ -22,6 +22,7 @@
             <a href="index.php">Home</a>
             <a href="attivita.php">Attività</a>
             <a href="Stabilimenti.php">Stabilimenti</a>
+            <a href="prenotaServizi.php" id="prenota" style="visibility: hidden;">Prenota Attività</a>
         </div>
         <div>
             <a class="UserProfile" id="UserProfile" href="profilo.php" onclick="" style="visibility: hidden;"></a>
