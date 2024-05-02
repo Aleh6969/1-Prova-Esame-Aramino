@@ -171,7 +171,7 @@ containerDiv.appendChild(registrationForm);
 document.body.appendChild(containerDiv);
 return "fatto";
 }
-function updateProfile() {//WIP
+function updateProfile() {//seems alright
     // Ottenere i valori dei campi di input
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
@@ -180,6 +180,7 @@ function updateProfile() {//WIP
             var response = xhr.responseText;
             if (response == "ok") {
                 alert("Profilo utente aggiornato con successo!");
+                Logout();
             } else {
                 alert("Si è verificato un errore durante l'aggiornamento del profilo utente.");
             }
@@ -190,7 +191,9 @@ function updateProfile() {//WIP
     var email = encodeURIComponent(document.getElementById("email").value);
     var password = encodeURIComponent(document.getElementById("password").value);
     var data = "username=" + username + "&email=" + email + "&password=" + password;
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.send(data);
+    //
 }
 function getSessionData(callback) {//idk
     var xhr = new XMLHttpRequest();
@@ -244,7 +247,7 @@ function Logout(){//i mean its all right
     xhr.open("POST", "../funzioniPHP/logout.php", true);
     xhr.send();
 }
-function CCValidate(CCNum, ExpDate, CVC, HolderName){
+function CCValidate(CCNum, ExpDate, CVC, HolderName){//TODO
     isValid('4916108926268679'); // returns true
     isExpirationDateValid('02', '2027'); // returns true
     isSecurityCodeValid('4556603578296676', '250'); // returns true
@@ -253,7 +256,7 @@ function CCValidate(CCNum, ExpDate, CVC, HolderName){
         alert("inserire un nome valido");
     }
 }
-function caricaServizi(){
+function caricaServizi(){//TODO
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && xhr.status == 200) {
@@ -267,7 +270,7 @@ function caricaServizi(){
     xhr.open("GET", "../funzioniPHP/caricaServizi.php", true);
     xhr.send();
 }
-function addOptionsToSelect(optionsArray, selectId) {
+function addOptionsToSelect(optionsArray, selectId) {//TO FINISH
     var select = document.getElementById(selectId);
     if (!select) {
         console.error("L'elemento select con ID " + selectId + " non esiste.");

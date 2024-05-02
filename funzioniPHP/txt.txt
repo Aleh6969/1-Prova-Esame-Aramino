@@ -1,0 +1,4 @@
+utente loggato
+Connessione riuscita
+aa, username settedaa, 1
+preparazion queryquery eseguita senza errori lanciati
